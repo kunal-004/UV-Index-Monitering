@@ -2,17 +2,30 @@ const express = require("express");
 const router = express.Router();
 const UvData = require("../models/uv.models");
 
+// API endpoint to receive UV index data
 router.post("/UvData", async (req, res) => {
   try {
-    const newUVData = new UvData({
-      uvIndex: req.body.uvIndex,
-    });
-    await newUVData.save();
-    res.status(201).json({ message: "UV data saved successfully" });
+    const { uvIndex } = req.body;
+    const uvData = new UvData({ uvIndex });
+    await uvData.save();
+
+    res.status(201).json({ message: "UV data saved", uvData });
   } catch (error) {
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({ message: "Error saving UV data", error });
   }
 });
+
+// router.post("/UvData", async (req, res) => {
+//   try {
+//     const newUVData = new UvData({
+//       uvIndex: req.body.uvIndex,
+//     });
+//     await newUVData.save();
+//     res.status(201).json({ message: "UV data saved successfully" });
+//   } catch (error) {
+//     res.status(500).json({ message: "Server Error" });
+//   }
+// });
 
 router.get("/UvData/today", async (req, res) => {
   try {

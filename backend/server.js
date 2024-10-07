@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use("/api", UvRouter);
 
-if ((process.env.NODE_ENV = "production")) {
+if (process.env.NODE_ENV === "production") {
   const path = require("path");
   app.use(express.static(path.join(__dirname, "..", "frontend", "dist")));
 

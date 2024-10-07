@@ -232,14 +232,26 @@ function UVIndexMonitor() {
 
       <div className="chart-container">
         <div className="chart">
-          {uvData.length > 0 ? (
-            <UVIndexBarChart uvData={uvData} />
-          ) : (
-            <p>Loading...</p>
-          )}
+          <h3>Current UV Index Values</h3> {/* Title for the first chart */}
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={uvData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="time" />
+              <YAxis domain={[0, 15]} />
+              <Tooltip content={<CustomTooltip />} />
+              <Legend />
+              <Line
+                type="monotone"
+                dataKey="uv"
+                stroke="#8884d8"
+                activeDot={{ r: 8 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
         </div>
 
         <div className="chart">
+          <h3>Weekly UV Index Values</h3> {/* Title for the second chart */}
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={dummyUVData2}>
               <CartesianGrid strokeDasharray="3 3" />
