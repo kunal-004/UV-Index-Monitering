@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const uvDataSchema = new mongoose.Schema(
   {
     uvIndex: {
-      type: String,
-      required: true,
+      type: Number,
     },
   },
   {

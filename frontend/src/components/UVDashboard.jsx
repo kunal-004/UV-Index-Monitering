@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import axios from "axios";
 
-// Import and register Chart.js components
 import {
   Chart as ChartJS,
   LineElement,
@@ -14,7 +13,6 @@ import {
   Legend,
 } from "chart.js";
 
-// Register Chart.js components
 ChartJS.register(
   LineElement,
   CategoryScale,
@@ -31,7 +29,7 @@ const UVDashboard = () => {
   useEffect(() => {
     const fetchUVData = async () => {
       const response = await axios.get("/api/UvData/today");
-      setUvData(response.data); // Correctly set response.data
+      setUvData(response.data);
       console.log(response.data);
     };
 
@@ -51,7 +49,7 @@ const UVDashboard = () => {
         data: uvData.map((item) => item.uvIndex),
         borderColor: "rgba(75, 192, 192, 1)",
         borderWidth: 1,
-        fill: false, // Ensures the chart line is not filled
+        fill: false,
       },
     ],
   };
@@ -59,7 +57,7 @@ const UVDashboard = () => {
   const options = {
     scales: {
       x: {
-        type: "category", // Register 'category' scale for x-axis
+        type: "category",
       },
       y: {
         beginAtZero: true,

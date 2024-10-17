@@ -26,7 +26,6 @@
   filter: drop-shadow(0 0 1.5em #61dafb);
 }
 
-/* Spin Animation for Logo */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -74,10 +73,10 @@
 }
 
 .chart {
-  flex: 1 1 45%; /* Ensures two charts fit side-by-side and can shrink appropriately */
+  flex: 1 1 45%;
   max-width: 600px;
   min-width: 300px;
-  height: 400px; /* Adjust height to ensure readability */
+  height: 400px;
   background-color: #ffffff;
   border-radius: 10px;
   padding: 1rem;
