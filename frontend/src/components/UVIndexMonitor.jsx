@@ -78,7 +78,7 @@ function UVIndexMonitor() {
       const intervalId = setInterval(() => {
         const recommendation = getRecommendation(currentUV);
         sendNotification("UV Index Update", recommendation);
-      }, 3600000); // Check every hour
+      }, 3000); // Check every hour
 
       return () => clearInterval(intervalId);
     }
