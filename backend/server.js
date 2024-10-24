@@ -1,5 +1,5 @@
 const express = require("express");
-const UvRouter = require("./routes/uvRoute");
+const router = require("./routes/uvRoute");
 require("dotenv").config();
 
 const cors = require("cors");
@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api", UvRouter);
+app.use("/api", router);
 
 if (process.env.NODE_ENV === "production") {
   const path = require("path");

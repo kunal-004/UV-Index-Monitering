@@ -65,8 +65,12 @@ function UVIndexMonitor() {
   };
 
   useEffect(() => {
-    fetchUVData("/api/UvData/today", setTodayData);
-    fetchUVData("/api/UvData/weekly", setWeekData);
+    const interval = setInterval(() => {
+      fetchUVData("/api/UvData/today", setTodayData);
+      fetchUVData("/api/UvData/weekly", setWeekData);
+    }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {

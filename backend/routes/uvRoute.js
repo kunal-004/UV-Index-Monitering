@@ -48,7 +48,7 @@ router.get("/UvData/weekly", async (req, res) => {
       createdAt: data.createdAt,
     }));
 
-    res.status(200).json(formattedUvData); 
+    res.status(200).json(formattedUvData);
   } catch (error) {
     console.error("Error fetching UV data:", error);
     res.status(500).json({ message: "Server Error" });
